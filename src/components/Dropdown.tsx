@@ -18,7 +18,9 @@ const StyledContent = styled(DropdownMenuPrimitive.Content)`
   ${popoverAnimationStyles}
 `;
 
-export const Content = ({ children, ...props }) => {
+type ContentProps = DropdownMenuPrimitive.DropdownMenuContentProps & React.RefAttributes<HTMLDivElement>;
+
+export const Content = ({ children, ...props }: ContentProps) => {
   return (
     <DropdownMenuPrimitive.Portal>
       <StyledContent sideOffset={5} collisionPadding={20} {...props} style={{ zIndex: 100 }}>
@@ -32,7 +34,7 @@ const itemStyles = {
   all: 'unset',
   lineHeight: 1,
   color: blackA.blackA12,
-  borderRadius: (props) => props.theme.rounding.m,
+  borderRadius: (props: any) => props.theme.rounding.m,
   display: 'flex',
   alignItems: 'center',
   height: 32,
@@ -52,8 +54,11 @@ const itemStyles = {
   },
 };
 
+// @ts-ignore
 export const Item = styled(DropdownMenuPrimitive.Item)({ ...itemStyles });
+// @ts-ignore
 export const CheckboxItem = styled(DropdownMenuPrimitive.CheckboxItem)({ ...itemStyles });
+// @ts-ignore
 export const RadioItem = styled(DropdownMenuPrimitive.RadioItem)({ ...itemStyles });
 
 export const Label = styled(DropdownMenuPrimitive.Label)({
@@ -84,7 +89,7 @@ const StyledArrow = styled(DropdownMenuPrimitive.Arrow)({
   fill: 'white',
 });
 
-export const Arrow = (props) => {
+export const Arrow = (props: any) => {
   return <StyledArrow width={15} height={7} offset={10} {...props}></StyledArrow>;
 };
 

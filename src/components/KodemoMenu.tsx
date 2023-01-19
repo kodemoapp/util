@@ -1,16 +1,16 @@
-import React from "react";
-import styled, { css } from "styled-components";
-import * as DropdownComponent from "../components/Dropdown";
-import * as Toast from "../components/Toast";
-import * as Tooltip from "../components/Tooltip";
-import * as Form from "../components/Form";
-import { hasCommandModifier } from "../keyboard";
-import { formatTitle } from "../string";
-import { ChevronDownIcon } from "@radix-ui/react-icons";
+import React from 'react';
+import styled, { css } from 'styled-components';
+import * as DropdownComponent from '../components/Dropdown';
+import * as Toast from '../components/Toast';
+import * as Tooltip from '../components/Tooltip';
+import * as Form from '../components/Form';
+import { hasCommandModifier } from '../keyboard';
+import { formatTitle } from '../string';
+import { ChevronDownIcon } from '@radix-ui/react-icons';
 
 // @ts-ignore
-import LogoSVG from "../../assets/images/ko-black.svg?component";
-import Color from "color";
+import LogoSVG from '../../assets/images/ko-black.svg?component';
+import Color from 'color';
 
 const StyledRoot = styled.header`
   position: sticky;
@@ -28,7 +28,7 @@ const StyledRoot = styled.header`
   flex-shrink: 0;
   transition: box-shadow 0.5s ease;
 
-  .ko-player[data-scrolled="true"] & {
+  .ko-player[data-scrolled='true'] & {
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.05), 0 -2px 2px rgba(0, 0, 0, 0.05);
   }
 
@@ -67,7 +67,7 @@ export const Button = styled.button`
   -webkit-tap-highlight-color: transparent;
 
   &:hover,
-  &[data-state="open"] {
+  &[data-state='open'] {
     background: ${({ theme }) => theme.colors.brand};
   }
 
@@ -121,12 +121,12 @@ function getHTMLFileContents({ title, json }: { title: string; json: string }) {
 </html>`;
 }
 
-function saveToFile(json: any, filename = "kodemo.json") {
+function saveToFile(json: any, filename = 'kodemo.json') {
   const file = new File([json], filename);
 
   // Create a link and set the URL using `createObjectURL`
-  const link = document.createElement("a");
-  link.style.display = "none";
+  const link = document.createElement('a');
+  link.style.display = 'none';
   link.href = URL.createObjectURL(file);
   link.download = file.name;
   // It needs to be added to the DOM so it can be clicked
@@ -144,7 +144,7 @@ function saveToFile(json: any, filename = "kodemo.json") {
 }
 
 function getFilenameForDocument(doc: any) {
-  return doc.title?.toLowerCase().replace(/\s/g, "-") || "kodemo";
+  return doc.title?.toLowerCase().replace(/\s/g, '-') || 'kodemo';
 }
 
 interface KodemoMenuContextProps {
@@ -168,23 +168,19 @@ const KodemoMenuContext = React.createContext<KodemoMenuContextProps>({
   onKeyboardSaveShortcut: () => {},
 });
 
-export const KodemoMenuProvider = ({
-  children,
-  onKeyboardSaveShortcut,
-  ...props
-}: KodemoMenuProps) => {
+export const KodemoMenuProvider = ({ children, onKeyboardSaveShortcut, ...props }: KodemoMenuProps) => {
   const [saveErrorOpen, setSaveErrorOpen] = React.useState(false);
   const [loadErrorOpen, setLoadErrorOpen] = React.useState(false);
 
   const saveFileAsJSON = React.useCallback(() => {
     const json = props.getDocumentJSON();
-    let filename = getFilenameForDocument(json) + ".json";
+    let filename = getFilenameForDocument(json) + '.json';
     let fileContents;
 
     try {
       fileContents = JSON.stringify(json);
     } catch (error) {
-      console.warn("Unable to save as JSON.", error);
+      console.warn('Unable to save as JSON.', error);
       setSaveErrorOpen(true);
     }
 
@@ -197,7 +193,7 @@ export const KodemoMenuProvider = ({
 
   const saveFileAsHTML = React.useCallback(() => {
     const json = props.getDocumentJSON();
-    let filename = getFilenameForDocument(json) + ".html";
+    let filename = getFilenameForDocument(json) + '.html';
     let fileContents;
 
     try {
@@ -206,7 +202,7 @@ export const KodemoMenuProvider = ({
         json: JSON.stringify(json),
       });
     } catch (error) {
-      console.warn("Unable to save as HTML.", error);
+      console.warn('Unable to save as HTML.', error);
       setSaveErrorOpen(true);
     }
 
@@ -224,7 +220,7 @@ export const KodemoMenuProvider = ({
       try {
         json = JSON.parse(fileContents);
       } catch (error) {
-        console.warn("Unable to load malformed JSON.", error);
+        console.warn('Unable to load malformed JSON.', error);
         setLoadErrorOpen(true);
       }
 
@@ -270,23 +266,13 @@ export function useKodemoMenu() {
 export const SaveJSONButton = (props: any) => {
   const { saveFileAsJSON } = useKodemoMenu();
 
-  return (
-    <DropdownComponent.Item
-      onSelect={saveFileAsJSON}
-      {...props}
-    ></DropdownComponent.Item>
-  );
+  return <DropdownComponent.Item onSelect={saveFileAsJSON} {...props}></DropdownComponent.Item>;
 };
 
 export const SaveHTMLButton = (props: any) => {
   const { saveFileAsHTML } = useKodemoMenu();
 
-  return (
-    <DropdownComponent.Item
-      onSelect={saveFileAsHTML}
-      {...props}
-    ></DropdownComponent.Item>
-  );
+  return <DropdownComponent.Item onSelect={saveFileAsHTML} {...props}></DropdownComponent.Item>;
 };
 
 export const LoadJSONButton = ({ children, ...props }: any) => {
@@ -316,12 +302,7 @@ export const LoadJSONButton = ({ children, ...props }: any) => {
 
   return (
     <div>
-      <StyledUploadButton
-        ref={buttonRef}
-        {...props}
-        asChild
-        onSelect={handleSelect}
-      >
+      <StyledUploadButton ref={buttonRef} {...props} asChild onSelect={handleSelect}>
         <label htmlFor="upload-json-document">{children}</label>
       </StyledUploadButton>
       <input
@@ -329,18 +310,14 @@ export const LoadJSONButton = ({ children, ...props }: any) => {
         ref={inputRef}
         type="file"
         accept="application/json"
-        style={{ display: "none" }}
+        style={{ display: 'none' }}
         onChange={handleChange}
       />
     </div>
   );
 };
 
-export function Root({
-  children,
-  onKeyboardSaveShortcut,
-  ...props
-}: KodemoMenuProps) {
+export function Root({ children, onKeyboardSaveShortcut, ...props }: KodemoMenuProps) {
   return (
     <Tooltip.Provider>
       <Toast.Provider>
@@ -370,7 +347,7 @@ export function Logo({ href }: { href: string }) {
     );
   } else {
     return (
-      <Button style={{ pointerEvents: "none" }}>
+      <Button style={{ pointerEvents: 'none' }}>
         <LogoWrapper>
           <LogoSVG></LogoSVG>
         </LogoWrapper>
@@ -390,18 +367,12 @@ function DropdownTrigger() {
   );
 }
 
-export function Dropdown({
-  trigger,
-  children,
-}: {
-  trigger: React.ReactNode;
-  children: React.ReactNode;
-}) {
+export function Dropdown({ trigger, children }: { trigger?: React.ReactNode; children: React.ReactNode }) {
   const { saveFileAsJSON, onKeyboardSaveShortcut } = useKodemoMenu();
 
   React.useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "s" && hasCommandModifier(event)) {
+      if (event.key === 's' && hasCommandModifier(event)) {
         event.preventDefault();
         if (onKeyboardSaveShortcut) {
           onKeyboardSaveShortcut();
@@ -411,22 +382,16 @@ export function Dropdown({
       }
     };
 
-    document.addEventListener("keydown", handleKeyDown);
-    return () => document.removeEventListener("keydown", handleKeyDown);
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
   }, []);
 
   return (
     <DropdownComponent.Root>
       <DropdownComponent.Trigger asChild>
-        <Button className="ko-menu-trigger">
-          {trigger || <DropdownTrigger />}
-        </Button>
+        <Button className="ko-menu-trigger">{trigger || <DropdownTrigger />}</Button>
       </DropdownComponent.Trigger>
-      <DropdownComponent.Content
-        sideOffset={-7}
-        alignOffset={20}
-        className="ko-menu-content"
-      >
+      <DropdownComponent.Content sideOffset={-7} alignOffset={20} className="ko-menu-content">
         {children}
         <DropdownComponent.Arrow offset={17} />
       </DropdownComponent.Content>
@@ -475,14 +440,10 @@ const StyledTitleInput = styled(Form.TextInput)<any>`
 interface KodemoTitleProps {
   defaultTitle: string;
   editable: boolean;
-  onTitleChange: (title: string) => void;
+  onTitleChange?: (title: string) => void;
 }
 
-export function Title({
-  defaultTitle,
-  onTitleChange,
-  editable = false,
-}: KodemoTitleProps) {
+export function Title({ defaultTitle, onTitleChange, editable = false }: KodemoTitleProps) {
   const inputRef = React.useRef<HTMLInputElement>(null);
   const [editing, setEditing] = React.useState(false);
   const [title, setTitle] = React.useState<string>();
@@ -500,17 +461,20 @@ export function Title({
       let value = formatTitle(inputRef.current.value);
 
       // We never want to save an empty title
-      if (!value || value === "") {
+      if (!value || value === '') {
         value = defaultTitle;
       }
 
       setTitle(value);
-      onTitleChange(value);
+
+      if (onTitleChange) {
+        onTitleChange(value);
+      }
     }
   };
 
   React.useEffect(() => {
-    if (editing && inputRef.current && typeof title !== "undefined") {
+    if (editing && inputRef.current && typeof title !== 'undefined') {
       inputRef.current.value = title;
       inputRef.current.focus();
       inputRef.current.select();
@@ -521,7 +485,7 @@ export function Title({
     // Stay in sync with the default title
     if (title !== defaultTitle) {
       // Ensure that the title is never empty
-      const newTitle = formatTitle(defaultTitle) || "Untitled";
+      const newTitle = formatTitle(defaultTitle) || 'Untitled';
       setTitle(newTitle);
 
       // If we're currently editing, update the input value
@@ -534,22 +498,13 @@ export function Title({
   if (editing) {
     return (
       <StyledTitle className="ko-document-title">
-        <StyledTitleInput
-          type="text"
-          ref={inputRef}
-          onBlur={stopEditing}
-          onConfirm={stopEditing}
-        />
+        <StyledTitleInput type="text" ref={inputRef} onBlur={stopEditing} onConfirm={stopEditing} />
       </StyledTitle>
     );
   } else {
     return (
       <>
-        <StyledTitle
-          editable={editable}
-          className="ko-document-title"
-          onMouseDown={startEditing}
-        >
+        <StyledTitle editable={editable} className="ko-document-title" onMouseDown={startEditing}>
           {title}
         </StyledTitle>
       </>

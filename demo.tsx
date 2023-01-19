@@ -1,6 +1,6 @@
-import "./demo.css";
-import React from "react";
-import ReactDOM from "react-dom/client";
+import './demo.css';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 import {
   Dropdown,
   Button,
@@ -18,31 +18,24 @@ import {
   Form,
   useNotifications,
   NotificationsProvider,
-} from "./src";
-import styled, { ThemeProvider } from "styled-components";
-import {
-  CheckIcon,
-  ClipboardCopyIcon,
-  Cross2Icon,
-  PlusIcon,
-  TrashIcon,
-  UploadIcon,
-} from "@radix-ui/react-icons";
+} from './src';
+import styled, { ThemeProvider } from 'styled-components';
+import { CheckIcon, ClipboardCopyIcon, Cross2Icon, PlusIcon, TrashIcon, UploadIcon } from '@radix-ui/react-icons';
 
-ReactDOM.createRoot(document.getElementById("root")).render(
+ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <div
         style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "2rem",
-          padding: "1rem 2rem",
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '2rem',
+          padding: '1rem 2rem',
         }}
       >
         <div>
           <h2>Button</h2>
-          <div style={{ display: "flex", gap: 10 }}>
+          <div style={{ display: 'flex', gap: 10 }}>
             <Button>Button</Button>
             <SilverButton>
               SilverButton <TrashIcon className="icon"></TrashIcon>
@@ -58,7 +51,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 
         <div>
           <h2>Dropdown</h2>
-          <div style={{ display: "flex", gap: 10 }}>
+          <div style={{ display: 'flex', gap: 10 }}>
             <DropdownExample>
               <Button>Dropdown</Button>
             </DropdownExample>
@@ -67,7 +60,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 
         <div>
           <h2>Popover</h2>
-          <div style={{ display: "flex", gap: 10 }}>
+          <div style={{ display: 'flex', gap: 10 }}>
             <PopoverExample>
               <Button>Confirmation</Button>
             </PopoverExample>
@@ -76,7 +69,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 
         <div>
           <h2>Dialog</h2>
-          <div style={{ display: "flex", gap: 10 }}>
+          <div style={{ display: 'flex', gap: 10 }}>
             <DialogConfirmation>
               <Button>Confirmation</Button>
             </DialogConfirmation>
@@ -88,22 +81,19 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 
         <div>
           <h2>Toast</h2>
-          <div style={{ display: "flex", gap: 10 }}>
+          <div style={{ display: 'flex', gap: 10 }}>
             <ToastExample></ToastExample>
           </div>
         </div>
 
         <div>
           <h2>Tooltip</h2>
-          <div style={{ display: "flex", gap: 10, overflow: "hidden" }}>
+          <div style={{ display: 'flex', gap: 10, overflow: 'hidden' }}>
             <Tooltip.Provider>
               <Tooltip.Tip text="This is a tooltip">
                 <Button>Tooltip</Button>
               </Tooltip.Tip>
-              <Tooltip.Tip
-                text="This is a tooltip a very, very long tooltip."
-                side="bottom"
-              >
+              <Tooltip.Tip text="This is a tooltip a very, very long tooltip." side="bottom">
                 <Button>Long tooltip</Button>
               </Tooltip.Tip>
             </Tooltip.Provider>
@@ -112,11 +102,11 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 
         <div>
           <h2>Slider</h2>
-          <div style={{ display: "flex", gap: 10 }}>
+          <div style={{ display: 'flex', gap: 10 }}>
             <div style={{ padding: 10 }}>
               <Slider.Default defaultValue={[50]} step={1} />
             </div>
-            <div style={{ backgroundColor: "#222", padding: 10 }}>
+            <div style={{ backgroundColor: '#222', padding: 10 }}>
               <Slider.Default defaultValue={[50]} step={1} variant="dark" />
             </div>
           </div>
@@ -124,7 +114,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 
         <div>
           <h2>Form</h2>
-          <div style={{ display: "flex", gap: 10 }}>
+          <div style={{ display: 'flex', gap: 10 }}>
             <FormExample></FormExample>
           </div>
         </div>
@@ -143,7 +133,7 @@ function DropdownExample({ children, ...props }) {
       <Dropdown.Content>
         <Dropdown.Group>
           <Dropdown.Item>
-            Upload{" "}
+            Upload{' '}
             <Dropdown.RightSlot>
               <UploadIcon />
             </Dropdown.RightSlot>
@@ -167,7 +157,7 @@ function DropdownExample({ children, ...props }) {
         </Dropdown.Group>
         <Dropdown.Group>
           <Dropdown.Item>
-            Upload{" "}
+            Upload{' '}
             <Dropdown.RightSlot>
               <UploadIcon />
             </Dropdown.RightSlot>
@@ -191,7 +181,7 @@ function DropdownExample({ children, ...props }) {
         </Dropdown.Group>
         <Dropdown.Group>
           <Dropdown.Item>
-            Upload{" "}
+            Upload{' '}
             <Dropdown.RightSlot>
               <UploadIcon />
             </Dropdown.RightSlot>
@@ -215,7 +205,7 @@ function DropdownExample({ children, ...props }) {
         </Dropdown.Group>
         <Dropdown.Group>
           <Dropdown.Item>
-            Upload{" "}
+            Upload{' '}
             <Dropdown.RightSlot>
               <UploadIcon />
             </Dropdown.RightSlot>
@@ -239,7 +229,7 @@ function DropdownExample({ children, ...props }) {
         </Dropdown.Group>
         <Dropdown.Group>
           <Dropdown.Item>
-            Upload{" "}
+            Upload{' '}
             <Dropdown.RightSlot>
               <UploadIcon />
             </Dropdown.RightSlot>
@@ -249,7 +239,7 @@ function DropdownExample({ children, ...props }) {
         <Dropdown.Label>Create file</Dropdown.Label>
         <Dropdown.Group>
           <Dropdown.Item>
-            Upload{" "}
+            Upload{' '}
             <Dropdown.RightSlot>
               <UploadIcon />
             </Dropdown.RightSlot>
@@ -287,7 +277,7 @@ function DropdownExample({ children, ...props }) {
         </Dropdown.Group>
         <Dropdown.Group>
           <Dropdown.Item>
-            Upload{" "}
+            Upload{' '}
             <Dropdown.RightSlot>
               <UploadIcon />
             </Dropdown.RightSlot>
@@ -320,7 +310,7 @@ function PopoverExample({ children, ...props }) {
     <Popover.Confirmation
       title="Are you sure?"
       onConfirm={() => {
-        console.log("confirmed!");
+        console.log('confirmed!');
       }}
     >
       {children}
@@ -363,27 +353,19 @@ function ToastNotifications() {
 
   return (
     <>
-      <Button
-        onClick={() =>
-          showNotification({ id: "note", title: "Test notification" })
-        }
-      >
-        Show notification
-      </Button>
+      <Button onClick={() => showNotification({ id: 'note', title: 'Test notification' })}>Show notification</Button>
       <Button
         onClick={() =>
           showNotification({
-            id: "note-icon",
-            title: "Test",
+            id: 'note-icon',
+            title: 'Test',
             icon: <CheckIcon />,
           })
         }
       >
         Show notification with icon
       </Button>
-      <Button onClick={() => hideNotification("note")}>
-        Hide notification
-      </Button>
+      <Button onClick={() => hideNotification('note')}>Hide notification</Button>
     </>
   );
 }
@@ -394,20 +376,14 @@ function DialogConfirmation({ children }) {
       <Dialog.Trigger asChild>{children}</Dialog.Trigger>
       <Dialog.Inner>
         <Dialog.Title>Editor Alpha</Dialog.Title>
+        <Dialog.Text>Thanks for trying out the alpha release of Kodemo!</Dialog.Text>
         <Dialog.Text>
-          Thanks for trying out the alpha release of Kodemo!
+          Please refrain from creating any content that you want to keep right now. Your data is only persisted locally
+          in the browser unless you file -&gt; save JSON.
         </Dialog.Text>
         <Dialog.Text>
-          Please refrain from creating any content that you want to keep right
-          now. Your data is only persisted locally in the browser unless you
-          file -&gt; save JSON.
-        </Dialog.Text>
-        <Dialog.Text>
-          I would love your feedback about what makes sense and what doesn't.
-          Feel free to email me or share at{" "}
-          <a href="https://github.com/KodemoApp/feedback">
-            github.com/kodemoapp/feedback
-          </a>
+          I would love your feedback about what makes sense and what doesn't. Feel free to email me or share at{' '}
+          <a href="https://github.com/KodemoApp/feedback">github.com/kodemoapp/feedback</a>
         </Dialog.Text>
         <Dialog.Text>-Hakim 🙌</Dialog.Text>
         <Dialog.Footer>
@@ -429,7 +405,7 @@ function DialogTextInput({ children }) {
       <Dialog.Inner>
         {/* <Dialog.Busy>Saving</Dialog.Busy> */}
         <Dialog.Title>Iframe URL</Dialog.Title>
-        <Dialog.Text style={{ width: "100%", gap: 10 }}>
+        <Dialog.Text style={{ width: '100%', gap: 10 }}>
           <Form.Label htmlFor="payload" style={{ flexShrink: 0 }}>
             Please enter a valid website address.
           </Form.Label>
@@ -440,7 +416,7 @@ function DialogTextInput({ children }) {
             formatter={Form.TextInputTypes.url.format}
           />
         </Dialog.Text>
-        <Dialog.Text style={{ width: "100%", gap: 10 }}>
+        <Dialog.Text style={{ width: '100%', gap: 10 }}>
           <Form.Label htmlFor="payload" style={{ flexShrink: 0 }}>
             Readonly and copyable
           </Form.Label>
@@ -496,9 +472,9 @@ function FormExample() {
   return (
     <div
       style={{
-        display: "flex",
-        flexDirection: "column",
-        width: "100%",
+        display: 'flex',
+        flexDirection: 'column',
+        width: '100%',
         maxWidth: 500,
         gap: 20,
       }}
@@ -507,31 +483,19 @@ function FormExample() {
         <Form.Label htmlFor="payload" style={{ flexShrink: 0 }}>
           Input
         </Form.Label>
-        <Form.TextInput
-          ref={ref4}
-          id="payload"
-          placeholder="Placeholder text"
-        />
+        <Form.TextInput ref={ref4} id="payload" placeholder="Placeholder text" />
       </ColumnFieldset>
       <ColumnFieldset>
         <Form.Label htmlFor="payload" style={{ flexShrink: 0 }}>
           Input + clear button (col)
         </Form.Label>
-        <Form.TextInputWithClearButton
-          ref={ref3}
-          id="payload"
-          placeholder="Placeholder text"
-        />
+        <Form.TextInputWithClearButton ref={ref3} id="payload" placeholder="Placeholder text" />
       </ColumnFieldset>
       <RowFieldset>
         <Form.Label htmlFor="payload" style={{ flexShrink: 0 }}>
           Input + clear button (row)
         </Form.Label>
-        <Form.TextInputWithClearButton
-          ref={ref1}
-          id="payload"
-          placeholder="Placeholder text"
-        />
+        <Form.TextInputWithClearButton ref={ref1} id="payload" placeholder="Placeholder text" />
       </RowFieldset>
       <RowFieldset>
         <Form.Label htmlFor="payload" style={{ flexShrink: 0 }}>
@@ -549,25 +513,13 @@ function FormExample() {
         <Form.Label htmlFor="payload" style={{ flexShrink: 0 }}>
           Readonly input with copy button
         </Form.Label>
-        <Form.TextInput
-          value="https://kodemo.com"
-          readOnly={true}
-          selectOnFocus={true}
-          copyToClipboard={true}
-        />
+        <Form.TextInput value="https://kodemo.com" readOnly={true} selectOnFocus={true} copyToClipboard={true} />
       </RowFieldset>
-      <ColumnFieldset
-        style={{ backgroundColor: "#222", padding: 10, color: "#fff" }}
-      >
+      <ColumnFieldset style={{ backgroundColor: '#222', padding: 10, color: '#fff' }}>
         <Form.Label htmlFor="payload" style={{ flexShrink: 0 }}>
           Dark background
         </Form.Label>
-        <Form.TextInput
-          ref={ref5}
-          id="payload"
-          variant="dark"
-          placeholder="Placeholder text"
-        />
+        <Form.TextInput ref={ref5} id="payload" variant="dark" placeholder="Placeholder text" />
         <Form.TextInputWithClearButton
           ref={ref6}
           id="payload"

@@ -7,7 +7,7 @@
     "email": "hakim.elhattab@gmail.com",
     "web": "https://hakim.se"
   },
-  "license": "UNLICENSED",
+  "license": "MIT",
   "files": [
     "dist"
   ],

@@ -33,11 +33,16 @@ const ContentWrapper = styled.div`
   font-size: ${(props) => props.theme.fontSize.l};
 `;
 
-export const Inner = React.forwardRef(
-  (
-    { children, overlayColor = blackA.blackA9, overlayBlur = 0, forceMount = false, maxWidth = 450, onOpenAutoFocus },
-    ref
-  ) => {
+type InnerProps = React.ComponentProps<typeof DialogPrimitive.Content> & {
+  overlayColor?: string;
+  overlayBlur?: number;
+  forceMount?: true;
+  maxWidth?: number;
+  onOpenAutoFocus?: React.FocusEventHandler;
+};
+
+export const Inner = React.forwardRef<any, InnerProps>(
+  ({ children, overlayColor = blackA.blackA9, overlayBlur = 0, forceMount, maxWidth = 450, onOpenAutoFocus }, ref) => {
     return (
       <Portal forceMount={forceMount}>
         <Overlay style={{ backgroundColor: overlayColor, backdropFilter: `blur(${overlayBlur}px)` }}></Overlay>
@@ -129,6 +134,6 @@ export const Cross = () => {
 export const Root = DialogPrimitive.Root;
 export const Trigger = DialogPrimitive.Trigger;
 export const Portal = DialogPrimitive.Portal;
-export const Close = (props) => {
+export const Close = (props: any) => {
   return <DialogPrimitive.Close asChild {...props}></DialogPrimitive.Close>;
 };
