@@ -12,6 +12,10 @@ export default defineConfig({
     host: true,
   },
 
+  resolve: {
+    dedupe: ['react', 'react-dom', 'styled-components'],
+  },
+
   build: {
     lib: {
       entry: path.resolve(__dirname, 'src/index.ts'),
