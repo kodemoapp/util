@@ -1,12 +1,12 @@
 <p align="center">
   <a href="https://kodemo.com">
-  <img width="1500" alt="github-header" src="https://user-images.githubusercontent.com/629429/213417968-96cffd2a-e6e0-473f-b2f0-343007c0c2ee.png">
+  <img width="1500" alt="Kodemo" src="https://user-images.githubusercontent.com/629429/213417968-96cffd2a-e6e0-473f-b2f0-343007c0c2ee.png">
   </a>
 </p>
 
 # Kodemo
 
-[Kodemo](https://kodemo.com) is a brand new format for writing more engaging technical documentation.
+Kodemo is a new format for more engaging and interactive technical documentation. It's great for tutorials and walkthroughs.
 - 🔗 Learn more at [kodemo.com](https://komdeo.com)
 - 👉 Try a [live demo](https://kodemo.com/docs/what-is-kodemo)
 - 👀 Follow [@kodemoapp](https://twitter.com/kodemoapp)
